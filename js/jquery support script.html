@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Dialog - Animation</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+
+    <div id="dialog-modal" title="Basic modal dialog">
+
+    </div>
+    <div id="another-dialog-modal" title="2nd Modal :O">
+      <p>hej</p>
+    </div>
+
+    <script>
+        $(function() {
+
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                show: {
+                    resizable: false,
+                    draggable: false,
+                    effect: "blind",
+                    direction: "up",
+                    duration: 150
+                },
+                hide: {
+                    effect: "blind",
+                    direction: "up",
+                    duration: 150
+                }
+            });
+
+            $( "#opener" ).click(function() {
+                $( "#dialog" ).dialog( "open" );
+
+                $( "#dialog-modal" ).dialog({
+                    height: 300,
+                    width: 500,
+                    resizable: false,
+                    draggable: false,
+                    modal: true,
+                    buttons: {
+                        "Another Modal": function() {
+                            $( "#another-dialog-modal" ).dialog('open');
+
+                        },
+                        Cancel: function() {
+                            $(this).dialog('close');
+                        }
+                    }
+                });
+
+                $( "#another-dialog-modal" ).dialog({
+                    autoOpen: false,
+                    resizable: false,
+                    draggable: false,
+                    height: 300,
+                    width: 600,
+                    modal: true,
+                    buttons: {
+                        Cancel: function() {
+                            $(this).dialog('close');
+                        }
+                    }
+                });
+
+
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+<p>
+
+
+
+
+</p>
+</div>
+
+<button id="opener">Support</button>
+
+
+</body>
+</html>

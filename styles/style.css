@@ -1,0 +1,99 @@
+body { padding-bottom: 70px; }
+
+.pageContent {
+    position: relative;
+    top: 80px;
+
+    margin-bottom: 100px;
+}
+
+.udlejerTable {
+    background-color: #FFFFFF;
+    outline: 3px solid #F0AD4E;
+    cursor: pointer;
+    padding: 20px;
+}
+
+
+
+.btn-group {
+    opacity: 0.8;
+}
+
+.btn-group:hover {
+    opacity: 1.0;
+}
+
+#indexSearchbarDiv {
+    position: relative;
+    top: -140px;
+}
+
+.jumboContent {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+#miniLogo {
+    position: relative;
+    top: 5px;
+    padding-left: 0px;
+    padding-right: 5px;
+}
+
+.jumbotron{
+    background-color: #222222;
+    color: #F0AD4E;
+}
+
+@media (max-width: 1050px) {
+    #yourpartylogo {
+        width:95%;
+    }
+}
+
+.udlejerTableText {
+    font-family: 'Lemon', cursive;
+}
+
+.udlejerTableAttribute {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+    font-family: 'Lemon', cursive;
+}
+
+.headlineText {
+    color: #F0AD4E;
+    font-weight: bold;
+    font-family: 'Lemon', cursive;
+}
+
+
+
+.headlineTextInfo{
+    color: #5BC0DE;
+    font-weight: bold;
+}
+
+#impliedsubmit {
+    color: black;
+}
+
+/* Flash besked */
+.flash {
+    position: fixed;
+    top: 100px;
+    z-index: 999;
+}
+
+
+
+/*
+Colors:
+D9534F (DANGER - RED)
+F0AD4E (WARNING - YELLOW)
+5BC0DE (INFO - LIGHT BLUE)
+5CB85C (SUCCESS - GREEN)
+428BCA (PRIMARY - BLUE)
+*/
