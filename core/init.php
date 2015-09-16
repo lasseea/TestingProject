@@ -27,6 +27,7 @@ spl_autoload_register('autoload');
 
 // Include functions
 require_once 'functions/sanitize.php';
+require_once 'functions/testQuestions.php';
 
 // Check for users that have requested to be remembered
 if(Cookie::exists(Config::get('remember/cookie_name'))) {

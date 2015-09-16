@@ -56,14 +56,6 @@ class User {
         }
     }
 
-    public function createLokale($fields = array()) {
-        //Creates a new lokale in the database, inserting the specified fields(from the array $fields), using the insert function from DB.php
-        if(!$this->_db->insert('lokaler', $fields)) {
-            //In case it did not succeed, it will throw an exception
-            throw new Exception('Der opstod et problem ved opretning af denne profil.');
-        }
-    }
-
     //Function for updating data in the
     public function update($fields = array(), $id = null) {
         if(!$id && $this->isLoggedIn()) {

@@ -56,6 +56,11 @@ class Validate {
                                 $this->addError("{$item} is already taken");
                             }
                             break;
+                        case 'maxvalue':
+                            if($value > $rule_value) {
+                                $this->addError("{$item} may not exceed {$rule_value}");
+                            }
+                            break;
                         case 'mailvalid':
                             if ($this->isValidEmail($value) != $rule_value) {
                                 $this->addError("You need to enter a valid mail");

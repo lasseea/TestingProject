@@ -86,7 +86,7 @@ if(Input::exists()) {
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn-info form-control" value="Signup" >
+            <input type="submit" class="btn-success form-control" value="Signup" >
         </div>
         <div class="form-group">
             <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
