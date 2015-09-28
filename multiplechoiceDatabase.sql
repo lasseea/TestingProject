@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 16. 09 2015 kl. 02:26:57
+-- Genereringstid: 28. 09 2015 kl. 12:52:06
 -- Serverversion: 5.6.26
 -- PHP-version: 5.6.12
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `answer5` varchar(200) NOT NULL,
   `correctanswer` int(11) NOT NULL,
   `explanation` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Data dump for tabellen `questions`
@@ -46,21 +46,8 @@ INSERT INTO `questions` (`id`, `question`, `answer1`, `answer2`, `answer3`, `ans
 (1, 'This is a question', 'This is answer 1', 'This is answer 2', 'This is answer 3', 'This is answer 4', 'This is answer 5', 3, 'Because it''s the right answer'),
 (2, 'this is another questions', 'this is the right answer', 'this is wrong', 'this is also wrong', 'another wrong answer', 'wrong', 1, 'Because it is'),
 (3, 'Are all these answers wrong?', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 4, 'Because it''s not wrong'),
-(4, 'hsdfsdf', 'hdfshdsf', 'hdsfshdf', 'hdsfsfhd', 'sdhfhdf', 'hsdfsfd', 4, 'shdfhdfs');
-
--- --------------------------------------------------------
-
---
--- Struktur-dump for tabellen `testresults`
---
-
-CREATE TABLE IF NOT EXISTS `testresults` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `total_questions` int(11) NOT NULL,
-  `correct_questions` int(11) NOT NULL,
-  `result_percentage` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(4, 'hsdfsdf', 'hdfshdsf', 'hdsfshdf', 'hdsfsfhd', 'sdhfhdf', 'hsdfsfd', 4, 'shdfhdfs'),
+(5, 'gdsgsadagasg', 'gdsgdsgs', 'ggsddgsg', 'gsgdsgds', 'gsgsdg', 'gsgsgds', 2, 'gsfgsdgsd');
 
 -- --------------------------------------------------------
 
@@ -75,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `salt` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `joined` datetime NOT NULL,
   `email` varchar(320) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 --
 -- Data dump for tabellen `users`
@@ -118,7 +105,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `joined`, `email`) VA
 (117, 'test12345', 'e644246ab4db26886977c7b60e97cc7b4a0a4d9f184cd0517209dad47020c69a', ';½uñüQIG?c?¸Ù?°\Z®?è½4rUÓì$?', '2015-09-14 10:43:54', 'test123145@gmail.com'),
 (118, 'testaccount2', 'e37462b8daf42ae1ff8e5522817253e65734f837389087f185b9d8c4a0571d81', '¥Ã¼ ¦Ñ¯TsË(Ü¢?ã?®$ÈV?', '0000-00-00 00:00:00', 'testaccount2@gmail.com'),
 (119, 'testingabc', '8a3a62694f7d497b7651650520527c41b20bdbc2be75757419f700cbcb607ad8', '´dz\rõ\\scöÀ¡iûdè²ý4$f¿¦¼îY]', '0000-00-00 00:00:00', 'testingabc@gmail.com'),
-(120, 'test123456', 'a392dd7d400848855040b2f03d830cfd4419e4306bd098a56e5ac0ad97ee83c9', '±«ÇúÖ>óÓÞÏ`BçäíXs.T¨Xæ:¥', '0000-00-00 00:00:00', 'test123456@gmail.com');
+(120, 'test123456', 'a392dd7d400848855040b2f03d830cfd4419e4306bd098a56e5ac0ad97ee83c9', '±«ÇúÖ>óÓÞÏ`BçäíXs.T¨Xæ:¥', '0000-00-00 00:00:00', 'test123456@gmail.com'),
+(121, 'randomuser', '1de022e89cc756349998fa9773d10077ab64b34360ca5eb7fdb8591b9e49f783', 'K<K«L_Âåî~''ÖZ:g0£Z\Zßð', '0000-00-00 00:00:00', 'randomemail@gmail.com'),
+(122, 'testuser5', '59f1dac4f98161dd17cdac2c00b78252d2ce0ee503b726796f7deaa3be4efdb8', '÷¹xâRV;Díò\\#¾Õ­P´üÖtM´}ç00', '0000-00-00 00:00:00', 'testuser5@gmail.com'),
+(123, 'testuser3', '0c5ac563776806eff403e6f714827660695fa1573d4802d5cbfe570719a6b634', 'eº½O*|.¡ksPºíhöÏ#¢3à«Eäð^Ã3Ú]', '0000-00-00 00:00:00', 'testuser3@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -152,12 +142,6 @@ ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks for tabel `testresults`
---
-ALTER TABLE `testresults`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks for tabel `users`
 --
 ALTER TABLE `users`
@@ -177,17 +161,12 @@ ALTER TABLE `users_session`
 -- Tilføj AUTO_INCREMENT i tabel `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- Tilføj AUTO_INCREMENT i tabel `testresults`
---
-ALTER TABLE `testresults`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Tilføj AUTO_INCREMENT i tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
 --
 -- Tilføj AUTO_INCREMENT i tabel `users_session`
 --

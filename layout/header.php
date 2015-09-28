@@ -55,7 +55,7 @@ if(Session::exists('home')) {
                         ?>
                         <li><a href="logout.php">
                                 <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                                Log ud (<?php echo escape($user->data()->username); ?>)</a></li>
+                                Sign out (<?php echo escape($user->data()->username); ?>)</a></li>
                     <?php
                     } else {
 

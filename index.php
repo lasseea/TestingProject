@@ -2,6 +2,8 @@
 $title = "MultipleChoiceTest";
 include "layout/header.php";
 
+$questionsExplanationsArray = questionsExplanations();
+
 if(Input::exists()) {
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();
@@ -85,6 +87,9 @@ if(Input::exists()) {
     <div class="pageContent">
 <?php
 if($user->isLoggedIn()) {
+    if  (isset($_GET['question1'])){
+        echo "<a href='#buttonOfPage'><button class='btn-success'><h3><b>Click here to see your test result</b></h3><br/><br/></button></a> ";
+    }
     ?>
 
     <p><b>Notice:</b> All fields must be filled.</p>
@@ -139,7 +144,33 @@ if($user->isLoggedIn()) {
     </form>
     <br/><br/><br/>
 <?php
-    testQuestions();
+    //Prints questions and makes array of correct answers called $questionAnswersArray
+    $questionAnswersArray = testQuestions();
+    //Variable for total questions, to calculate percentage of correct answers
+    $totalQuestionsAmount = count($questionAnswersArray);
+    //Checks if questions have been answered and prints result if they have
+    if  (isset($_GET['question1'])){
+        $correctAnswersAmount = 0;
+        $foreachCounter = 0;
+        $currentQuestionCounter = 1;
+        echo "<br/><br/><h3 class='headlineText'>Your test result:</h3>";
+        foreach($_GET as $key => $value)
+        {
+            if ($value == $questionAnswersArray[$foreachCounter]){
+                $correctAnswersAmount++;
+                echo "<p class='correctAnswer'><b>Question $currentQuestionCounter is correct - your answer was answer number $value</b></p>";
+            } else {
+                echo "<p class='incorrectAnswer'><b>Question $currentQuestionCounter is incorrect - your answer was answer number $value</b></p>
+                <b>Explanation to question $currentQuestionCounter:<br/> $questionsExplanationsArray[$foreachCounter]</b><br/><br/>";
+            }
+            $foreachCounter++;
+            $currentQuestionCounter++;
+
+        }
+        echo "<h3><b>You got $correctAnswersAmount out of $totalQuestionsAmount questions right!</b></h3><br/>";
+        echo "<span id='buttonOfPage'></span>";
+    }
+
 } else {
 ?>
     <b>Please login to take the test and add new questions</b>

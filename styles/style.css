@@ -86,7 +86,13 @@ body { padding-bottom: 70px; }
     z-index: 999;
 }
 
+.correctAnswer{
+    color: green;
+}
 
+.incorrectAnswer{
+    color:red;
+}
 
 /*
 Colors:
